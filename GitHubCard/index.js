@@ -52,6 +52,7 @@ const followersArray = [];
 </div>
 
 */
+const cardContainer = document.querySelector('.cards');
 
   function singleObjectCreator(object){
     const
