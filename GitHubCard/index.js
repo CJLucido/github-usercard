@@ -86,18 +86,17 @@ const cardContainer = document.querySelector('.cards');
           heading1.classList.add("name");
           para1.classList.add("username");
 
-       //info.forEach(item => {
         profImg.src = item[3];
         heading1.textContent = item[18];
         para1.textContent = item[0];
         para2.textContent = `Location: ${item[21]}`;
-        para3.textContent = `Profile: ${aTag1Para3}`;
+        aTag1Para3.textContent = `${item[6]}`;///had to put this above the para3, wait no, a tag isn't showing
         aTag1Para3.href = item[6];
-        aTag1Para3.textContent = `${item[6]}`;
+        para3.textContent = `Profile: ${aTag1Para3.textContent}`;
         para4.textContent = `Followers: ${item[27]}`;
         para5.textContent = `Following: ${item[28]}`;
         para6.textContent = `Bio: ${item[24]}`
-       //})
+
     
       return div1;
   }
@@ -128,7 +127,7 @@ const cardContainer = document.querySelector('.cards');
   bigknell
 */
 
-followersArray.forEach( item => {
+followersArray.forEach(item => {
   axios
   .get('https://api.github.com/users/'+ item) //DONT USE SEMICOLON HERE OR YOU WILL CLOSE OUT AXIOS!!
   .then(response =>  {
