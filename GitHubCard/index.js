@@ -3,6 +3,13 @@
            https://api.github.com/users/<your name>
 */
 
+axios
+.get('https://api.github.com/users/CJLucido') //DONT USE SEMICOLON HERE OR YOU WILL CLOSE OUT AXIOS!!
+.then(response =>  {
+    console.log(response)
+  });
+  
+
 /* Step 2: Inspect and study the data coming back, this is YOUR 
    github info! You will need to understand the structure of this 
    data in order to use it to build your component function 
@@ -45,6 +52,22 @@ const followersArray = [];
 </div>
 
 */
+
+  function singleObjectCreator(object){
+    const
+      div1 = document.createElement('div'),
+      profImg = document.createElement('img'),
+      div1Pt1 = document.createElement('div'),
+      heading1 = document.createElement('h3'),
+      para1 = document.createElement('p'),
+      para2 = document.createElement('p'),
+      para3 = document.createElement('p'),
+        aTag1Para3 = document.createElement('a'),
+      para4 = document.createElement('p'),
+      para5 = document.createElement('p'),
+      para6 = document.createElement('p');
+
+  }
 
 /* List of LS Instructors Github username's: 
   tetondan
