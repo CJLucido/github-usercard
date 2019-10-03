@@ -70,16 +70,7 @@ const cardContainer = document.querySelector('.cards');
         para5 = document.createElement('p'),
         para6 = document.createElement('p');
 
-    div1.appendChild(profImg);
-    div1.appendChild(div1Pt1);
-      div1Pt1.appendChild(heading1);
-      div1Pt1.appendChild(para1);
-      div1Pt1.appendChild(para2);
-      div1Pt1.appendChild(para3);
-        para3.appendChild(aTag1Para3);
-      div1Pt1.appendChild(para4);
-      div1Pt1.appendChild(para5);
-      div1Pt1.appendChild(para6);
+
 
       div1.classList.add("card");
         div1Pt1.classList.add("card-info");
@@ -90,13 +81,25 @@ const cardContainer = document.querySelector('.cards');
         heading1.textContent = item[18];
         para1.textContent = item[0];
         para2.textContent = `Location: ${item[21]}`;
+
+        para3.textContent = `Profile: ${aTag1Para3}`;
         aTag1Para3.textContent = `${item[6]}`;///had to put this above the para3, wait no, a tag isn't showing
         aTag1Para3.href = item[6];
-        para3.textContent = `Profile: ${aTag1Para3}`;
         para4.textContent = `Followers: ${item[27]}`;
         para5.textContent = `Following: ${item[28]}`;
         para6.textContent = `Bio: ${item[24]}`
 
+
+        div1.appendChild(profImg);
+        div1.appendChild(div1Pt1);
+          div1Pt1.appendChild(heading1);
+          div1Pt1.appendChild(para1);
+          div1Pt1.appendChild(para2);
+          div1Pt1.appendChild(para3);
+            para3.appendChild(aTag1Para3);
+          div1Pt1.appendChild(para4);
+          div1Pt1.appendChild(para5);
+          div1Pt1.appendChild(para6);
     
       return div1;
   }
