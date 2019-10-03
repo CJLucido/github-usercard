@@ -78,6 +78,12 @@ const followersArray = [];
       div1Pt1.appendChild(para5);
       div1Pt1.appendChild(para6);
 
+      div1.classList.add(card);
+        div1Pt1.classList.add(card-info);
+          heading1.classList.add(name);
+          para1.classList.add(username);
+    
+
   }
 
 /* List of LS Instructors Github username's: 
