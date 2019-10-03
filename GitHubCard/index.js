@@ -6,9 +6,15 @@
 axios
 .get('https://api.github.com/users/CJLucido') //DONT USE SEMICOLON HERE OR YOU WILL CLOSE OUT AXIOS!!
 .then(response =>  {
-    console.log(response)
-  });
-  
+    console.log(response);
+    response.data.forEach(item => {
+      const newProf = singleObjectCreator(item);
+      cardContainer.appendChild(newProf);
+    })
+  }) //NO SEMICOLON HERE!!!!
+.catch(error => {
+  console.log("You done messed up");
+});
 
 /* Step 2: Inspect and study the data coming back, this is YOUR 
    github info! You will need to understand the structure of this 
