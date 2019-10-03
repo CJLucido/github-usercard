@@ -58,14 +58,25 @@ const followersArray = [];
       div1 = document.createElement('div'),
       profImg = document.createElement('img'),
       div1Pt1 = document.createElement('div'),
-      heading1 = document.createElement('h3'),
-      para1 = document.createElement('p'),
-      para2 = document.createElement('p'),
-      para3 = document.createElement('p'),
-        aTag1Para3 = document.createElement('a'),
-      para4 = document.createElement('p'),
-      para5 = document.createElement('p'),
-      para6 = document.createElement('p');
+        heading1 = document.createElement('h3'),
+        para1 = document.createElement('p'),
+        para2 = document.createElement('p'),
+        para3 = document.createElement('p'),
+          aTag1Para3 = document.createElement('a'),
+        para4 = document.createElement('p'),
+        para5 = document.createElement('p'),
+        para6 = document.createElement('p');
+
+    div1.appendChild(profImg);
+    div1.appendChild(div1Pt1);
+      div1Pt1.appendChild(heading1);
+      div1Pt1.appendChild(para1);
+      div1Pt1.appendChild(para2);
+      div1Pt1.appendChild(para3);
+        para3.appendChild(aTag1Para3);
+      div1Pt1.appendChild(para4);
+      div1Pt1.appendChild(para5);
+      div1Pt1.appendChild(para6);
 
   }
 
