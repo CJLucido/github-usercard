@@ -25,7 +25,15 @@
           user, and adding that card to the DOM.
 */
 
-const followersArray = [];
+const followersArray = [
+  "tetondan",
+  "dustinmyers",
+  "justsml",
+  "luishrd",
+  "bigknell"
+];
+
+
 
 /* Step 3: Create a function that accepts a single object as its only argument,
           Using DOM methods and properties, create a component that will return the following DOM element:
@@ -82,13 +90,13 @@ const cardContainer = document.querySelector('.cards');
         profImg.src = item[3];
         heading1.textContent = item[18];
         para1.textContent = item[0];
-        para2.textContent = `Location: ${item[24]}`;
-        para3.textContent = "Profile:";
+        para2.textContent = `Location: ${item[21]}`;
+        para3.textContent = `Profile: ${aTag1Para3}`;
         aTag1Para3.href = item[6];
-        aTag1Para3.textContent = item[6];
+        aTag1Para3.textContent = `${item[6]}`;
         para4.textContent = `Followers: ${item[27]}`;
         para5.textContent = `Following: ${item[28]}`;
-        para6.textContent = `Bio: ${item[19]}`
+        para6.textContent = `Bio: ${item[24]}`
        //})
     
       return div1;
@@ -119,3 +127,23 @@ const cardContainer = document.querySelector('.cards');
   luishrd
   bigknell
 */
+
+followersArray.forEach( item => {
+  axios
+  .get('https://api.github.com/users/'+ item) //DONT USE SEMICOLON HERE OR YOU WILL CLOSE OUT AXIOS!!
+  .then(response =>  {
+      console.log(response);
+      let info = [];
+      info = response.data;
+      let info2 = [];
+      info2 = Object.values(info);
+      console.log(info2);
+        const newProf = singleObjectCreator(info2);
+        cardContainer.appendChild(newProf);
+      
+    }) //NO SEMICOLON HERE!!!!
+  .catch(error => {
+    console.log("You done messed up", error);
+  });
+
+})
