@@ -82,8 +82,21 @@ const followersArray = [];
         div1Pt1.classList.add(card-info);
           heading1.classList.add(name);
           para1.classList.add(username);
-    
 
+      object.forEach(item => {
+        profImg.src = item.data.avatar_url;
+        heading1.textContent = item.data.name;
+        para1.textContent = item.data.login;
+        para2.textContent = `Location: ${item.data.location}`;
+        para3.textContent = "Profile:";
+        aTag1Para3.href = item.data.html_url;
+        aTag1Para3.textContent = item.data.html_url;
+        para4.textContent = `Followers: ${item.data.followers}`;
+        para5.textContent = `Following: ${item.data.following}`;
+        para6.textContent = `Bio: ${item.data.bio}`
+      })
+    
+      return div1;
   }
 
 /* List of LS Instructors Github username's: 
