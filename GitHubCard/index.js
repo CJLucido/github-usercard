@@ -3,18 +3,6 @@
            https://api.github.com/users/<your name>
 */
 
-axios
-.get('https://api.github.com/users/CJLucido') //DONT USE SEMICOLON HERE OR YOU WILL CLOSE OUT AXIOS!!
-.then(response =>  {
-    console.log(response);
-    response.data.forEach(item => {
-      const newProf = singleObjectCreator(item);
-      cardContainer.appendChild(newProf);
-    })
-  }) //NO SEMICOLON HERE!!!!
-.catch(error => {
-  console.log("You done messed up");
-});
 
 /* Step 2: Inspect and study the data coming back, this is YOUR 
    github info! You will need to understand the structure of this 
@@ -60,7 +48,7 @@ const followersArray = [];
 */
 const cardContainer = document.querySelector('.cards');
 
-  function singleObjectCreator(object){
+  function singleObjectCreator(item){
     const
       div1 = document.createElement('div'),
       profImg = document.createElement('img'),
@@ -85,26 +73,44 @@ const cardContainer = document.querySelector('.cards');
       div1Pt1.appendChild(para5);
       div1Pt1.appendChild(para6);
 
-      div1.classList.add(card);
-        div1Pt1.classList.add(card-info);
-          heading1.classList.add(name);
-          para1.classList.add(username);
+      div1.classList.add("card");
+        div1Pt1.classList.add("card-info");
+          heading1.classList.add("name");
+          para1.classList.add("username");
 
-      object.forEach(item => {
-        profImg.src = item.data.avatar_url;
-        heading1.textContent = item.data.name;
-        para1.textContent = item.data.login;
-        para2.textContent = `Location: ${item.data.location}`;
+       //info.forEach(item => {
+        profImg.src = item[3];
+        heading1.textContent = item[18];
+        para1.textContent = item[0];
+        para2.textContent = `Location: ${item[24]}`;
         para3.textContent = "Profile:";
-        aTag1Para3.href = item.data.html_url;
-        aTag1Para3.textContent = item.data.html_url;
-        para4.textContent = `Followers: ${item.data.followers}`;
-        para5.textContent = `Following: ${item.data.following}`;
-        para6.textContent = `Bio: ${item.data.bio}`
-      })
+        aTag1Para3.href = item[6];
+        aTag1Para3.textContent = item[6];
+        para4.textContent = `Followers: ${item[27]}`;
+        para5.textContent = `Following: ${item[28]}`;
+        para6.textContent = `Bio: ${item[19]}`
+       //})
     
       return div1;
   }
+
+
+  axios
+.get('https://api.github.com/users/CJLucido') //DONT USE SEMICOLON HERE OR YOU WILL CLOSE OUT AXIOS!!
+.then(response =>  {
+    console.log(response);
+    let info = [];
+    info = response.data;
+    let info2 = [];
+    info2 = Object.values(info);
+    console.log(info2);
+      const newProf = singleObjectCreator(info2);
+      cardContainer.appendChild(newProf);
+    
+  }) //NO SEMICOLON HERE!!!!
+.catch(error => {
+  console.log("You done messed up", error);
+});
 
 /* List of LS Instructors Github username's: 
   tetondan
